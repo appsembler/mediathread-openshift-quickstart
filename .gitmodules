@@ -1,0 +1,3 @@
+[submodule "mediathread"]
+	path = mediathread
+	url = git@github.com:appsembler/mediathread.git
