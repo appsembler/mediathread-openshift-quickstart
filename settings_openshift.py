@@ -15,10 +15,9 @@ PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'mediath
 STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
-STATIC_URL = '/static/media/'
+MEDIA_URL = '/static/media/'
 
 COMPRESS_ENABLED = False
 COMPRESS_ROOT = STATIC_ROOT
-COMPRESS_URL = STATIC_URL
 
 SECRET_KEY = "$#bc!$782^y76@vs3lr+w^qx)&qsuic*ycz%ta_f^cu(1+4($x"
