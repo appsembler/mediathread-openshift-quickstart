@@ -9,19 +9,17 @@ source ${OPENSHIFT_PYTHON_DIR}virtenv/bin/activate
 export PYTHON_EGG_CACHE=${OPENSHIFT_PYTHON_DIR}virtenv/lib/python-2.6/site-packages
 export PYTHONPATH="${OPENSHIFT_REPO_DIR}:${OPENSHIFT_REPO_DIR}mediathread:${OPENSHIFT_REPO_DIR}mediathread/mediathread"
 
-DJANGO_SETTINGS=settings_openshift
+export DJANGO_SETTINGS_MODULE=settings_openshift
 
 cd ${OPENSHIFT_REPO_DIR}mediathread
 pip install -r ${OPENSHIFT_REPO_DIR}requirements.openshift.txt --log /tmp/pip.log --build /tmp/build
 
 echo "Executing 'django-admin.py syncdb --noinput'"
-django-admin.py syncdb --noinput --settings=$DJANGO_SETTINGS
+django-admin.py syncdb --noinput --settings=$DJANGO_SETTINGS_MODULE
 
 echo "Executing 'django-admin.py migrate'"
-django-admin.py migrate --settings=$DJANGO_SETTINGS
+django-admin.py migrate --settings=$DJANGO_SETTINGS_MODULE
 
-echo "Executing 'django-admin.py make_admin'"
-django-admin.py make_admin --settings=$DJANGO_SETTINGS
 
 #echo "Executing 'python ${OPENSHIFT_REPO_DIR}mediathread/manage.py collectstatic --noinput -v0'"
 #python "$OPENSHIFT_REPO_DIR"mediathread/manage.py collectstatic --noinput -v0 --settings=$DJANGO_SETTINGS
