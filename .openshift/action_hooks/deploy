@@ -10,7 +10,7 @@ export PYTHON_EGG_CACHE=${OPENSHIFT_PYTHON_DIR}virtenv/lib/python-2.6/site-packa
 
 DJANGO_SETTINGS=mediathread.settings_openshift
 
-cd ${OPENSHIFT_REPO_DIR}
+cd ${OPENSHIFT_REPO_DIR}mediathread
 pip install -r ${OPENSHIFT_REPO_DIR}requirements.openshift.txt --log /tmp/pip.log --build /tmp/build
 
 echo "Executing 'python ${OPENSHIFT_REPO_DIR}mediathread/manage.py syncdb --noinput'"
