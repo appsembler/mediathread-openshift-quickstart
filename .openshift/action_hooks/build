@@ -8,4 +8,8 @@ if [ ! -d $OPENSHIFT_DATA_DIR/media ]; then
 mkdir $OPENSHIFT_DATA_DIR/media
 fi
 
+if [ ! -d $OPENSHIFT_REPO_DIR/wsgi/static/collected_static ]; then
+mkdir $OPENSHIFT_REPO_DIR/wsgi/static/collected_static
+fi
+
 ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_REPO_DIR/wsgi/static/media

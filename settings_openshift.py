@@ -2,6 +2,7 @@ import os
 from django.core.exceptions import ImproperlyConfigured
 from settings import *
 
+
 def get_env_variable(var_name):
     """ Get the environment variable or return exception """
     try:
@@ -14,12 +15,17 @@ def get_env_variable(var_name):
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'mediathread', 'mediathread')
+PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'mediathread')
+APP_ROOT = os.path.join(PROJECT_ROOT, 'mediathread')
 
-STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static')
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
-MEDIA_URL = '/static/media/'
+STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
+STATIC_URL = '/site_media/'
+MEDIA_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'media')
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'media'),
+)
 
 COMPRESS_ENABLED = False
 COMPRESS_ROOT = STATIC_ROOT
@@ -33,6 +39,7 @@ RAVEN_CONFIG = {
 }
 
 INSTALLED_APPS += (
+    'django.contrib.staticfiles',
     'raven.contrib.django.raven_compat',
 )
 
