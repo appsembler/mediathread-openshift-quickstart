@@ -29,7 +29,7 @@ STATICFILES_DIRS = (
 
 ALLOWED_HOSTS = ['.rhcloud.com']
 
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
 COMPRESS_ROOT = STATIC_ROOT
 
 SECRET_KEY = "$#bc!$782^y76@vs3lr+w^qx)&qsuic*ycz%ta_f^cu(1+4($x"
