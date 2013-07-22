@@ -1,3 +1,4 @@
 -r mediathread/requirements/apps.txt
 
 newrelic==1.13.1.31
+raven==3.4.1

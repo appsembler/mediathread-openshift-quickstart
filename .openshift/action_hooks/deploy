@@ -5,6 +5,7 @@
 # ruby, etc.
 
 source ${OPENSHIFT_PYTHON_DIR}virtenv/bin/activate
+source ${OPENSHIFT_DATA_DIR}secret_keys
  
 export PYTHON_EGG_CACHE=${OPENSHIFT_PYTHON_DIR}virtenv/lib/python-2.6/site-packages
 export PYTHONPATH="${OPENSHIFT_REPO_DIR}:${OPENSHIFT_REPO_DIR}mediathread:${OPENSHIFT_REPO_DIR}mediathread/mediathread"
