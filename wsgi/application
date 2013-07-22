@@ -24,7 +24,15 @@ except IOError:
 #
 # IMPORTANT: Put any additional includes below this line.  If placed above this
 # line, it's possible required libraries won't be in your searchable path
-# 
+#
+try:
+    import newrelic.agent
+
+    config_file = os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'newrelic.ini')
+    if os.path.exists(config_file):
+        newrelic.agent.initialize(config_file, 'production')
+except IOError:
+    pass
 
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()
