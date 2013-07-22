@@ -10,6 +10,10 @@ def get_env_variable(var_name):
         error_msg = "Set the %s environment variable" % var_name
         raise ImproperlyConfigured(error_msg)
 
+
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
+
 PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'mediathread', 'mediathread')
 
 STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static')
