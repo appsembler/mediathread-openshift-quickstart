@@ -27,6 +27,8 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'media'),
 )
 
+ALLOWED_HOSTS = ['.rhcloud.com']
+
 COMPRESS_ENABLED = False
 COMPRESS_ROOT = STATIC_ROOT
 
