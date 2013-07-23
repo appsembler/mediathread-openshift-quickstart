@@ -27,6 +27,17 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'media'),
 )
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mediathread',
+        'HOST': get_env_variable('OPENSHIFT_POSTGRESQL_DB_HOST'),
+        'PORT': get_env_variable('OPENSHIFT_POSTGRESQL_DB_PORT'),
+        'USER': get_env_variable('OPENSHIFT_POSTGRESQL_DB_USERNAME'),
+        'PASSWORD': get_env_variable('OPENSHIFT_POSTGRESQL_DB_PASSWORD'),
+    }
+}
+
 ALLOWED_HOSTS = ['.rhcloud.com']
 
 COMPRESS_ENABLED = True
