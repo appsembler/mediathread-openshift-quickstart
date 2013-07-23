@@ -15,6 +15,7 @@ fi
 ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_REPO_DIR/wsgi/static/media
 
 source ${OPENSHIFT_PYTHON_DIR}virtenv/bin/activate
+source ${OPENSHIFT_DATA_DIR}secret_keys
 export PYTHONPATH="${OPENSHIFT_REPO_DIR}:${OPENSHIFT_REPO_DIR}mediathread:${OPENSHIFT_REPO_DIR}mediathread/mediathread"
 export DJANGO_SETTINGS_MODULE=settings_openshift
 
