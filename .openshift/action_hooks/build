@@ -16,6 +16,7 @@ ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_REPO_DIR/wsgi/static/media
 
 source ${OPENSHIFT_PYTHON_DIR}virtenv/bin/activate
 export PYTHONPATH="${OPENSHIFT_REPO_DIR}:${OPENSHIFT_REPO_DIR}mediathread:${OPENSHIFT_REPO_DIR}mediathread/mediathread"
+export DJANGO_SETTINGS_MODULE=settings_openshift
 
 cd ${OPENSHIFT_REPO_DIR}mediathread
 pip install -r ${OPENSHIFT_REPO_DIR}requirements.openshift.txt --log /tmp/pip.log --build /tmp/build
