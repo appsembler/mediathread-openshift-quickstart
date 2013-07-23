@@ -38,6 +38,22 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': get_env_variable('OPENSHIFT_REDIS_DB_HOST') + ':' + get_env_variable('OPENSHIFT_REDIS_DB_PORT'),
+        'OPTIONS': {
+            'DB': 1,
+            'PASSWORD': get_env_variable('OPENSHIFT_REDIS_DB_PASSWORD'),
+            'PARSER_CLASS': 'redis.connection.HiredisParser'
+        },
+    },
+}
+
+MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',) + \
+                    MIDDLEWARE_CLASSES + \
+                    ('django.middleware.cache.FetchFromCacheMiddleware',)
+
 ALLOWED_HOSTS = ['.rhcloud.com']
 
 COMPRESS_ENABLED = True
