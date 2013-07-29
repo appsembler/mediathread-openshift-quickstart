@@ -22,6 +22,7 @@ wget -O ${OPENSHIFT_REPO_DIR}mediathread/media/js/appsembler_sherdjs.tar.gz http
 cd ${OPENSHIFT_REPO_DIR}mediathread/media/js/
 tar xvzf appsembler_sherdjs.tar.gz
 rm appsembler_sherdjs.tar.gz
+mv appsembler-SherdJS-* sherdjs
 
 cd ${OPENSHIFT_REPO_DIR}mediathread
 echo "Executing 'django-admin.py collectstatic'"
