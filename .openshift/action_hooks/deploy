@@ -18,11 +18,9 @@ django-admin.py syncdb --noinput --settings=$DJANGO_SETTINGS_MODULE
 echo "Executing 'django-admin.py migrate'"
 django-admin.py migrate --settings=$DJANGO_SETTINGS_MODULE
 
-wget -O ${OPENSHIFT_REPO_DIR}mediathread/media/js/appsembler_sherdjs.tar.gz https://api.github.com/repos/appsembler/SherdJS/tarball
+cp ${OPENSHIFT_REPO_DIR}sherdjs-0.1.1.tar.gz ${OPENSHIFT_REPO_DIR}mediathread/requirements/src
 cd ${OPENSHIFT_REPO_DIR}mediathread/media/js/
-tar xvzf appsembler_sherdjs.tar.gz
-rm appsembler_sherdjs.tar.gz
-mv appsembler-SherdJS-* sherdjs
+tar xvzf sherdjs-0.1.1.tar.gz
 
 cd ${OPENSHIFT_REPO_DIR}mediathread
 echo "Executing 'django-admin.py collectstatic'"
