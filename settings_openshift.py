@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',) + \
                     MIDDLEWARE_CLASSES + \
                     ('django.middleware.cache.FetchFromCacheMiddleware',)
 
-ALLOWED_HOSTS = ['.rhcloud.com']
+ALLOWED_HOSTS = ['mediathread.appsembler.com', '.rhcloud.com']
 
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = STATIC_ROOT
