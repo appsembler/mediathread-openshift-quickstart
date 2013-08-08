@@ -1,6 +1,5 @@
 -r mediathread/requirements/production.txt
 
-customerio==0.1.2
 django-redis-cache==0.10.0
 hiredis==0.1.1
 newrelic==1.13.1.31
