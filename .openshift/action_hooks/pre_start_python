@@ -13,4 +13,4 @@
 # Application start and stop is subject to different timeouts
 # throughout the system.
 
-source ${OPENSHIFT_DATA_DIR}secret_keys
+source ${OPENSHIFT_REPO_DIR}secret_keys
