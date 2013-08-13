@@ -79,7 +79,7 @@ EMAIL_HOST_PASSWORD = get_env_variable('MANDRILL_API_KEY')
 DEFAULT_FROM_EMAIL = "support@appsembler.com"
 SERVER_EMAIL = "support@appsembler.com"
 PUBLIC_CONTACT_EMAIL = "support@appsembler.com"
-ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Mediathread]'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Mediathread] '
 
 # Sentry/Raven config
 RAVEN_CONFIG = {
