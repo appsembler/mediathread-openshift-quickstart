@@ -71,6 +71,9 @@ CUSTOMERIO_API_KEY = get_env_variable('CUSTOMERIO_API_KEY')
 MAILCHIMP_API_KEY = get_env_variable('MAILCHIMP_API_KEY')
 MAILCHIMP_REGISTRATION_LIST_ID = get_env_variable('MAILCHIMP_REGISTRATION_LIST_ID')
 
+# Segment.io key
+SEGMENTIO_API_KEY = get_env_variable('SEGMENTIO_API_KEY')
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mandrillapp.com'
 EMAIL_PORT = 587
