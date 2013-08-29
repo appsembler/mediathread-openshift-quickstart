@@ -48,6 +48,16 @@ CACHES = {
             'PARSER_CLASS': 'redis.connection.HiredisParser'
         },
     },
+    'johnny': {
+        'BACKEND': 'johnny.backends.redis.RedisCache',
+        'LOCATION': get_env_variable('OPENSHIFT_REDIS_DB_HOST') + ':' + get_env_variable('OPENSHIFT_REDIS_DB_PORT'),
+        'OPTIONS': {
+            'DB': 1,
+            'PASSWORD': get_env_variable('OPENSHIFT_REDIS_DB_PASSWORD'),
+            'PARSER_CLASS': 'redis.connection.HiredisParser'
+        },
+        'JOHNNY_CACHE': True,
+    }
 }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
@@ -60,6 +70,7 @@ ALLOWED_HOSTS = ['mediathread.appsembler.com', '.rhcloud.com']
 
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_CSS_HASHING_METHOD = 'content'
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
