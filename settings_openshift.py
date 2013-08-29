@@ -70,7 +70,6 @@ ALLOWED_HOSTS = ['mediathread.appsembler.com', '.rhcloud.com']
 
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = STATIC_ROOT
-COMPRESS_CSS_HASHING_METHOD = 'content'
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
