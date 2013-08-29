@@ -3,4 +3,6 @@ RewriteEngine on
 #RewriteCond %{HTTP:X-Forwarded-Proto} !https  
 #RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R,L]  
 
+RewriteRule ^application/apple-touch-icon-72x72.png$ http://mediathread.appsembler.com/site_media/img/apple-touch-icon-72x72.png [L]
+
 RewriteRule ^application/site_media/(.+)$ /static/collected_static/$1 [L]
