@@ -18,10 +18,13 @@ TEMPLATE_DEBUG = DEBUG
 PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'mediathread')
 APP_ROOT = os.path.join(PROJECT_ROOT, 'mediathread')
 
-STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
-STATIC_URL = '/site_media/'
-MEDIA_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'media')
-MEDIA_URL = '/media/'
+# Media and static served from Amazon S3
+DEFAULT_FILE_STORAGE = 'mediathread.s3_utils.MediaRootS3BotoStorage'
+MEDIA_URL = 'https://mediathread-media.s3.amazonaws.com/'
+
+
+STATICFILES_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
+STATIC_URL = 'https://mediathread-static.s3.amazonaws.com/'
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'media'),
@@ -69,7 +72,8 @@ MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',) + \
 ALLOWED_HOSTS = ['mediathread.appsembler.com', '.rhcloud.com']
 
 COMPRESS_ENABLED = True
-COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_URL = 'https://mediathread-static.s3.amazonaws.com/'
+COMPRESS_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
@@ -84,6 +88,11 @@ MAILCHIMP_REGISTRATION_LIST_ID = get_env_variable('MAILCHIMP_REGISTRATION_LIST_I
 # Segment.io key
 SEGMENTIO_API_KEY = get_env_variable('SEGMENTIO_API_KEY')
 SEGMENTIO_JS_KEY = '3ts2xu858r'
+
+# Amazon AWS keys for S3 storage
+AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
+AWS_PRELOAD_METADATA = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mandrillapp.com'
