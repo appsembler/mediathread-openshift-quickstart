@@ -25,6 +25,7 @@ MEDIA_URL = 'https://mediathread-media.s3.amazonaws.com/'
 
 STATICFILES_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
 STATIC_URL = 'https://mediathread-static.s3.amazonaws.com/'
+STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'media'),
@@ -94,6 +95,7 @@ SEGMENTIO_JS_KEY = '3ts2xu858r'
 AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 AWS_PRELOAD_METADATA = True
+AWS_STORAGE_BUCKET_NAME = 'mediathread-static'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mandrillapp.com'
