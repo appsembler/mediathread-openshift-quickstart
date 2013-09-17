@@ -24,7 +24,6 @@ django-admin.py migrate --settings=$DJANGO_SETTINGS_MODULE
 
 cd ${OPENSHIFT_REPO_DIR}mediathread
 echo "Executing 'django-admin.py collectstatic'"
-django-admin.py compress --noinput --settings=$DJANGO_SETTINGS_MODULE
 django-admin.py collectstatic --noinput --settings=$DJANGO_SETTINGS_MODULE
 
 cp ${OPENSHIFT_REPO_DIR}mediathread/crossdomain.xml ${OPENSHIFT_REPO_DIR}wsgi/static/collected_static

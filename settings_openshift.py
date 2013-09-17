@@ -74,7 +74,7 @@ ALLOWED_HOSTS = ['mediathread.appsembler.com', '.rhcloud.com']
 COMPRESS_ENABLED = True
 COMPRESS_URL = 'https://mediathread-static.s3.amazonaws.com/'
 COMPRESS_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
