@@ -103,6 +103,9 @@ AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 AWS_PRELOAD_METADATA = True
 AWS_STORAGE_BUCKET_NAME = 'mediathread-static'
 
+# Flick API key for clipping photos
+DJANGOSHERD_FLICKR_APIKEY = get_env_variable('DJANGOSHERD_FLICK_APIKEY')
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mandrillapp.com'
 EMAIL_PORT = 587
