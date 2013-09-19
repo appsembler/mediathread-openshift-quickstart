@@ -19,18 +19,18 @@ PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'mediath
 APP_ROOT = os.path.join(PROJECT_ROOT, 'mediathread')
 
 # # Media and static served from Amazon S3
-DEFAULT_FILE_STORAGE = 'mediathread.s3_utils.MediaRootS3BotoStorage'
-MEDIA_URL = 'https://mediathread-media.s3.amazonaws.com/'
+#DEFAULT_FILE_STORAGE = 'mediathread.s3_utils.MediaRootS3BotoStorage'
+#MEDIA_URL = 'https://mediathread-media.s3.amazonaws.com/'
 
 
-STATICFILES_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
-STATIC_URL = 'https://mediathread-static.s3.amazonaws.com/'
-STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
-
+#STATICFILES_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
+#STATIC_URL = 'https://mediathread-static.s3.amazonaws.com/'
 #STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
-#STATIC_URL = '/site_media/'
-#MEDIA_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'media')
-#MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'collected_static')
+STATIC_URL = '/site_media/'
+MEDIA_ROOT = os.path.join(get_env_variable('OPENSHIFT_REPO_DIR'), 'wsgi', 'static', 'media')
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'media'),
@@ -79,9 +79,9 @@ ALLOWED_HOSTS = ['mediathread.appsembler.com', '.rhcloud.com']
 
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = STATIC_ROOT
-COMPRESS_URL = 'https://mediathread-static.s3.amazonaws.com/'
-COMPRESS_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
-COMPRESS_OFFLINE = True
+#COMPRESS_URL = 'https://mediathread-static.s3.amazonaws.com/'
+#COMPRESS_STORAGE = 'mediathread.s3_utils.CachedStaticRootS3BotoStorage'
+#COMPRESS_OFFLINE = True
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
