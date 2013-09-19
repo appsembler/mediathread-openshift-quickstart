@@ -104,7 +104,7 @@ AWS_PRELOAD_METADATA = True
 AWS_STORAGE_BUCKET_NAME = 'mediathread-static'
 
 # Flick API key for clipping photos
-DJANGOSHERD_FLICKR_APIKEY = get_env_variable('DJANGOSHERD_FLICK_APIKEY')
+DJANGOSHERD_FLICKR_APIKEY = get_env_variable('DJANGOSHERD_FLICKR_APIKEY')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mandrillapp.com'
